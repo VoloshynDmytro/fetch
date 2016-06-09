@@ -152,12 +152,18 @@
 
   function readBlobAsArrayBuffer(blob) {
     var reader = new FileReader()
+    if (reader._realReader) {
+      reader = reader._realReader
+    }
     reader.readAsArrayBuffer(blob)
     return fileReaderReady(reader)
   }
 
   function readBlobAsText(blob) {
     var reader = new FileReader()
+    if (reader._realReader) {
+      reader = reader._realReader
+    }
     reader.readAsText(blob)
     return fileReaderReady(reader)
   }
